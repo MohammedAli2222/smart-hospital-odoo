@@ -1,0 +1,11 @@
+# Odoo & Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+.env
+.venv/
+# Database
+*.sqlite
+*.log

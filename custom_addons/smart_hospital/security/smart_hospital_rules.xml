@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="rule_doctor_own_tasks" model="ir.rule">
+            <field name="name">Doctors: See Own Field Tasks Only</field>
+            <field name="model_id" ref="project.model_project_task"/>
+            <field name="groups" eval="[(4, ref('smart_hospital.group_doctor_clinician'))]"/>
+            <field name="domain_force">[('user_ids', 'in', [user.id])]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="rule_accountant_financial_journals" model="ir.rule">
+            <field name="name">Accountants: Full Access to Financial Journals</field>
+            <field name="model_id" ref="account.model_account_journal"/>
+            <field name="groups" eval="[(4, ref('smart_hospital.group_accountant'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+    </data>
+</odoo>

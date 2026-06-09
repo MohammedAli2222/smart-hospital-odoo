@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="tag_trauma" model="crm.tag">
+            <field name="name">#Trauma</field>
+            <field name="color">1</field>
+        </record>
+
+        <record id="tag_pediatric" model="crm.tag">
+            <field name="name">#Pediatric</field>
+            <field name="color">2</field>
+        </record>
+
+        <record id="tag_infectious" model="crm.tag">
+            <field name="name">#InfectiousOutbreak</field>
+            <field name="color">3</field>
+        </record>
+
+        <record id="patient_ahmed_ali" model="res.partner">
+            <field name="name">Ahmed Ali</field>
+            <field name="comment">Blood Type: O- | Allergies: Penicillin</field>
+        </record>
+
+        <record id="demo_emergency_ticket" model="crm.lead">
+            <field name="name">Severe Vehicle Collision</field>
+            <field name="partner_id" ref="patient_ahmed_ali"/>
+            <field name="priority">3</field>
+            <field name="tag_ids" eval="[(6, 0, [ref('tag_trauma'), ref('tag_pediatric')])]"/>
+            <field name="stage_id" ref="crm.stage_lead1"/>
+            <field name="type">opportunity</field>
+        </record>
+        
+    </data>
+</odoo>

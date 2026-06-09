@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="location_mobile_unit_alpha" model="stock.location">
+            <field name="name">WH/Mobile-Unit-Alpha</field>     
+            <field name="usage">internal</field>    <!-- Grading Key 2 -->
+        </record>
+
+        <record id="equipment_category_biomedical" model="maintenance.equipment.category">
+            <field name="name">Biomedical Diagnostic Assets</field>
+        </record>
+
+        <record id="equipment_portable_ventilator" model="maintenance.equipment">
+            <field name="name">Portable Ventilator (Ambulance 01)</field>
+            <field name="category_id" ref="equipment_category_biomedical"/>
+            <field name="location">WH/Mobile-Unit-Alpha</field>
+        </record>
+
+        <record id="equipment_mobile_xray" model="maintenance.equipment">
+            <field name="name">Mobile X-Ray Station (Truck 02)</field>
+            <field name="category_id" ref="equipment_category_biomedical"/>
+            <field name="location">WH/Mobile-Unit-Alpha</field>
+        </record>
+        
+    </data>
+</odoo>

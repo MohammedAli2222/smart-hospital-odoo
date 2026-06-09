@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="project_disaster_relief" model="project.project">
+            <field name="name">Remote Disaster Relief Campaign</field>
+        </record>
+
+        <record id="task_general_checkup" model="project.task">
+            <field name="name">General Checkup Tent</field>
+            <field name="project_id" ref="project_disaster_relief"/>
+        </record>
+
+        <record id="task_mobile_xray" model="project.task">
+            <field name="name">Mobile X-Ray Station</field>
+            <field name="project_id" ref="project_disaster_relief"/>
+        </record>
+
+        <record id="doctor_david" model="res.partner">
+            <field name="name">Dr. David</field>
+            <field name="function">Emergency Physician</field>
+        </record>
+
+        <record id="calendar_event_dr_david" model="calendar.event">
+            <field name="name">Dr. David - General Checkup Tent (North Sector)</field>
+            <field name="location">Mobile X-Ray Station - Ambulance 01</field>
+            <field name="show_as">busy</field>
+            <field name="start" eval="datetime.now().strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="stop" eval="(datetime.now() + timedelta(days=2)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="partner_ids" eval="[(6, 0, [ref('doctor_david')])]"/>
+        </record>
+        
+    </data>
+</odoo>

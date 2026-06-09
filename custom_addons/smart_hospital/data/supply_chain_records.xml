@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="vendor_global_pharma" model="res.partner">
+            <field name="name">Global Pharma Corp</field>
+            <field name="is_company">True</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="product_category_emergency_drugs" model="product.category">
+            <field name="name">Emergency Medications</field>
+        </record>
+
+        <record id="product_epinephrine" model="product.product">
+            <field name="name">Epinephrine Auto-Injector (EpiPen)</field>
+            <field name="type">product</field>
+            <field name="categ_id" ref="product_category_emergency_drugs"/>
+            
+            <field name="tracking">lot</field>
+            
+            <field name="use_expiration_date">True</field>
+            <field name="expiration_time">365</field>
+        </record>
+
+        <record id="reordering_rule_epinephrine" model="stock.warehouse.orderpoint">
+            <field name="name">Epinephrine Auto-Reorder</field>
+            <field name="product_id" ref="product_epinephrine"/>
+            <field name="product_min_qty">50.0</field>
+            <field name="product_max_qty">200.0</field>
+        </record>
+        
+    </data>
+</odoo>
